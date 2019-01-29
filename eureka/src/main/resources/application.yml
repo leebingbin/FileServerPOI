@@ -1,9 +1,42 @@
+spring:
+  application:
+    name: eureka
+
+---
+spring:
+  profiles: peer1
 server:
   port: 8101
 eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
   client:
-    registerWithEureka: false
-    fetchRegistry: false
     serviceUrl:
-      defaultZone: http://localhost:8101/eureka/
+      defaultZone: http://localhost:8102/eureka/,http://localhost:8103/eureka/
 
+---
+spring:
+  profiles: peer2
+server:
+  port: 8102
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8101/eureka/,http://localhost:8103/eureka/
+
+---
+spring:
+  profiles: peer3
+server:
+  port: 8103
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8101/eureka/,http://localhost:8102/eureka/
