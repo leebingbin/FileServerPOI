@@ -1,0 +1,15 @@
+server:
+  port: 8301
+spring:
+  application:
+    name: bingo-file-server
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://bingo:bingo9102@localhost:8101/eureka/,http://bingo:bingo9102@localhost:8102/eureka/,http://bingo:bingo9102@localhost:8103/eureka/
+  instance:
+    prefer-ip-address: true
+
+
+
+
