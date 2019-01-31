@@ -5,38 +5,62 @@ spring:
 ---
 spring:
   profiles: peer1
+security:
+  basic:
+    enabled: true
+  user:
+    name: bingo
+    password: bingo9102
 server:
   port: 8101
 eureka:
   instance:
     hostname: localhost
     prefer-ip-address: true
+  server:
+    enable-self-preservation: true
   client:
     serviceUrl:
-      defaultZone: http://localhost:8102/eureka/,http://localhost:8103/eureka/
+      defaultZone: http://bingo:bingo9102@localhost:8102/eureka/,http://bingo:bingo9102@localhost:8103/eureka/
 
 ---
 spring:
   profiles: peer2
+security:
+  basic:
+    enabled: true
+  user:
+    name: bingo
+    password: bingo9102
 server:
   port: 8102
 eureka:
   instance:
     hostname: localhost
     prefer-ip-address: true
+  server:
+    enable-self-preservation: true
   client:
     serviceUrl:
-      defaultZone: http://localhost:8101/eureka/,http://localhost:8103/eureka/
+      defaultZone: http://bingo:bingo9102@localhost:8101/eureka/,http://bingo:bingo9102@localhost:8103/eureka/
 
 ---
 spring:
   profiles: peer3
+security:
+  basic:
+    enabled: true
+  user:
+    name: bingo
+    password: bingo9102
 server:
   port: 8103
 eureka:
   instance:
     hostname: localhost
     prefer-ip-address: true
+  server:
+    enable-self-preservation: true
   client:
     serviceUrl:
-      defaultZone: http://localhost:8101/eureka/,http://localhost:8102/eureka/
+      defaultZone: http://bingo:bingo9102@localhost:8101/eureka/,http://bingo:bingo9102@localhost:8102/eureka/
