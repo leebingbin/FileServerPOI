@@ -12,18 +12,19 @@
   <description>file server</description>
 
   <parent>
-    <groupId>com.bingbinlee.springcloud</groupId>
-    <artifactId>parent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <relativePath>../parent/pom.xml</relativePath>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.1.2.RELEASE</version>
+    <relativePath/>
   </parent>
 
   <properties>
+    <is.boot.project>false</is.boot.project>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.8</java.version>
   </properties>
 
-  <!-- 引入spring cloud的依赖 -->
   <dependencyManagement>
     <dependencies>
       <dependency>
