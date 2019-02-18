@@ -12,6 +12,7 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -75,9 +76,12 @@ public class BaseDataDaoImpl<T extends BaseDataModel> implements BaseDataDao<T> 
 
     @Override
     public List<T> selectChildrenById(String id, Class<T> clazz) throws Exception {
+        List<Sort.Order> orders = new ArrayList<>();
         Sort.Order order1 = new Sort.Order(Sort.Direction.DESC, "status");
         Sort.Order order2 = new Sort.Order(Sort.Direction.DESC, "ctime");
         Sort sort = new Sort(order1, order2);
+        orders.add(order1);
+        orders.add(order2);
         List<T> ret = mongoTemplate.find(new Query(Criteria.where("pId").is(id)).with(sort), clazz);
         return ret;
     }
