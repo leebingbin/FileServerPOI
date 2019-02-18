@@ -3,6 +3,13 @@ server:
 spring:
   application:
     name: bingo-file-server
+  data:
+    mongodb:
+      host: 192.168.1.187
+      port: 27017
+      uri: mongodb://192.168.1.187:27017/test
+
+
 eureka:
   client:
     serviceUrl:

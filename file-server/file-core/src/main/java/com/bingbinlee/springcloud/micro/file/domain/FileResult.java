@@ -1,6 +1,7 @@
 package com.bingbinlee.springcloud.micro.file.domain;
 
 import com.bingbinlee.springcloud.micro.common.base.model.BaseDataModel;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
@@ -8,6 +9,7 @@ import java.io.Serializable;
 @Document(collection = "FileResult")
 public class FileResult extends BaseDataModel implements Serializable {
 
+    @Id
     private String fileID;
 
     public String getFileID() {
