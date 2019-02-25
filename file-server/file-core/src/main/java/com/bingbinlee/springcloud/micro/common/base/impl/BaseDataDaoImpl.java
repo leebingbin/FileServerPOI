@@ -79,10 +79,9 @@ public class BaseDataDaoImpl<T extends BaseDataModel> implements BaseDataDao<T> 
         List<Sort.Order> orders = new ArrayList<>();
         Sort.Order order1 = new Sort.Order(Sort.Direction.DESC, "status");
         Sort.Order order2 = new Sort.Order(Sort.Direction.DESC, "ctime");
-        Sort sort = new Sort(order1, order2);
         orders.add(order1);
         orders.add(order2);
-        List<T> ret = mongoTemplate.find(new Query(Criteria.where("pId").is(id)).with(sort), clazz);
+        List<T> ret = mongoTemplate.find(new Query(Criteria.where("pId").is(id)).with((Sort) orders), clazz);
         return ret;
     }
 
@@ -110,7 +109,6 @@ public class BaseDataDaoImpl<T extends BaseDataModel> implements BaseDataDao<T> 
                 factoryId = map.get(key).toString();
             }
         }
-        //统计订单表数据  根据厂商ID 统计该厂商下的每种商品的 销售总额 按照商品ID分组查询
         Aggregation aggregation = Aggregation.newAggregation(
                 match(Criteria.where("factoryId").is(factoryId)),
                 group("productId").sum("ptotalMoney").as("total")
