@@ -5,9 +5,9 @@ spring:
     name: bingo-file-server
   data:
     mongodb:
-      host: 192.168.1.187
+      host: localhost
       port: 27017
-      uri: mongodb://192.168.1.187:27017/test
+      uri: mongodb://localhost:27017/test
 
 
 eureka:

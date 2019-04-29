@@ -63,7 +63,7 @@
         </dependencies>
     </dependencyManagement>
 
-    <repositories>
+<!--    <repositories>
         <repository>
             <id>spring-milestones</id>
             <name>Spring Milestones</name>
@@ -75,7 +75,7 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
-    </repositories>
+    </repositories>-->
     <pluginRepositories>
         <pluginRepository>
             <id>spring-milestones</id>
